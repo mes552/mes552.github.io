@@ -26,28 +26,38 @@
         header {
             background-color: var(--primary-color);
             color: #ffffff;
-            text-align: center;
             padding: 2.5rem 1rem;
         }
 
-        header h1 {
+        .header-container {
+            max-width: 800px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap; /* Ensures layout looks great on mobile screens */
+            text-align: left;
+        }
+
+        .headshot {
+            width: 130px;
+            height: 130px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid #ffffff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .header-text h1 {
             margin: 0;
             font-size: 2.2rem;
         }
 
-        header p {
+        .header-text p {
             margin: 0.5rem 0 0;
             font-size: 0.95rem;
             color: #dcdcdc;
-        }
-
-        header a {
-            color: #64b5f6;
-            text-decoration: none;
-        }
-
-        header a:hover {
-            text-decoration: underline;
         }
 
         main {
@@ -134,13 +144,28 @@
             font-size: 0.85rem;
             color: #6c757d;
         }
+
+        /* Mobile Adjustments */
+        @media (max-width: 600px) {
+            .header-container {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
     </style>
 </head>
 <body>
 
     <header>
-        <h1>Mark Stolin</h1>
-        <p>Morganville, NJ | mark.stolin@rutgers.edu | (732) 735-3867</p>
+        <div class="header-container">
+            <!-- Headshot Image -->
+            <img src="Mark.Stolin.png" alt="Mark Stolin" class="headshot">
+            
+            <div class="header-text">
+                <h1>Mark Stolin</h1>
+                <p>Morganville, NJ | mark.stolin@rutgers.edu | (732) 735-3867</p>
+            </div>
+        </div>
     </header>
 
     <main>
