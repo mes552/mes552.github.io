@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mark Stolin | Portfolio</title>
+    <style>
+        /* Base styles */
+        :root {
+            --primary-color: #0d233a;
+            --accent-color: #0056b3;
+            --text-color: #333333;
+            --bg-color: #f8f9fa;
+            --card-bg: #ffffff;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--bg-color);
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: var(--primary-color);
+            color: #ffffff;
+            text-align: center;
+            padding: 2.5rem 1rem;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2.2rem;
+        }
+
+        header p {
+            margin: 0.5rem 0 0;
+            font-size: 0.95rem;
+            color: #dcdcdc;
+        }
+
+        header a {
+            color: #64b5f6;
+            text-decoration: none;
+        }
+
+        header a:hover {
+            text-decoration: underline;
+        }
+
+        main {
+            max-width: 800px;
+            margin: 2rem auto;
+            padding: 0 1.5rem;
+        }
+
+        section {
+            background: var(--card-bg);
+            border-radius: 8px;
+            padding: 1.5rem 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+
+        h2 {
+            color: var(--primary-color);
+            border-bottom: 2px solid var(--accent-color);
+            padding-bottom: 0.5rem;
+            margin-top: 0;
+        }
+
+        /* Personal Statement */
+        .personal-statement p {
+            font-size: 1.1rem;
+            font-weight: 500;
+            color: #2c3e50;
+        }
+
+        /* Skills section */
+        .skills-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            padding: 0;
+            list-style: none;
+        }
+
+        .skills-list li {
+            background-color: #e9ecef;
+            color: var(--primary-color);
+            padding: 0.4rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+
+        /* Projects section */
+        .project-card {
+            border-left: 4px solid var(--accent-color);
+            padding-left: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .project-card:last-child {
+            margin-bottom: 0;
+        }
+
+        .project-card h3 {
+            margin: 0 0 0.25rem 0;
+            color: var(--primary-color);
+        }
+
+        .project-card p {
+            margin: 0.5rem 0;
+        }
+
+        .project-link {
+            display: inline-block;
+            margin-top: 0.25rem;
+            color: var(--accent-color);
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+        .project-link:hover {
+            text-decoration: underline;
+        }
+
+        footer {
+            text-align: center;
+            padding: 1.5rem;
+            font-size: 0.85rem;
+            color: #6c757d;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Mark Stolin</h1>
+        <p>Morganville, NJ | mark.stolin@rutgers.edu | (732) 735-3867</p>
+    </header>
+
+    <main>
+        <!-- 1. Personal Statement Section -->
+        <section class="personal-statement">
+            <h2>Personal Statement</h2>
+            <p>
+                Finance and Mathematics student at Rutgers Business School leveraging strong analytical capabilities in quantitative modeling, programming, and valuation to drive strategic data-backed decisions.
+            </p>
+        </section>
+
+        <!-- 2. Skills Section -->
+        <section>
+            <h2>Skills & Qualifications</h2>
+            <ul class="skills-list">
+                <li>Java</li>
+                <li>JavaScript</li>
+                <li>R</li>
+                <li>MySQL</li>
+                <li>Financial Modeling</li>
+                <li>Data Analysis</li>
+                <li>Valuation Analysis</li>
+                <li>Research & Quantitative Reasoning</li>
+                <li>Bloomberg Market Concepts (BMC)</li>
+                <li>Bloomberg Finance Fundamentals (BFF)</li>
+            </ul>
+        </section>
+
+        <!-- 3. Projects Section -->
+        <section>
+            <h2>Projects</h2>
+            
+            <div class="project-card">
+                <h3>Bender Trust Fund Stock Pitch — Quanta Services (NYSE: PWR)</h3>
+                <p>
+                    Led a 5-person team conducting quantitative and qualitative financial analyses for a buy recommendation on Quanta Services[cite: 1, 2]. Evaluated core catalysts including federal infrastructure spending and a $30B project backlog, comparing performance metrics against 6 sector competitors[cite: 1, 2].
+                </p>
+                <a href="https://github.com/yourusername/stock-pitch-quanta" class="project-link" target="_blank" rel="noopener">View Code / Pitch Material &rarr;</a>
+            </div>
+
+            <div class="project-card">
+                <h3>Undergraduate Research Writing Conference (URWC) Presentation</h3>
+                <p>
+                    Researched the effects of creative thought within business and its impact on entrepreneurial growth[cite: 1, 2]. Presented methodology, case study analyses, and key findings on business innovation to an audience of peers and faculty[cite: 1, 2].
+                </p>
+                <a href="https://github.com/yourusername/urwc-research-presentation" class="project-link" target="_blank" rel="noopener">View Research Project &rarr;</a>
+            </div>
+
+            <div class="project-card">
+                <h3>Human Behavior & Workplace Dynamics Research</h3>
+                <p>
+                    Evaluated empirical academic studies on human behavior to analyze organizational behavior and model core drivers in workplace dynamics for Rutgers Management Research Group[cite: 1, 2].
+                </p>
+                <a href="https://github.com/yourusername/org-behavior-research" class="project-link" target="_blank" rel="noopener">View Research Brief &rarr;</a>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Mark Stolin. Built for GitHub Portfolio Project.</p>
+    </footer>
+
+</body>
+</html>
