@@ -6,164 +6,323 @@
     <title>Mark Stolin | Portfolio</title>
     <style>
         :root {
-            --primary-color: #0d233a;
-            --accent-color: #0056b3;
-            --text-color: #333333;
-            --bg-color: #f8f9fa;
-            --card-bg: #ffffff;
+            --bg-color: #0f172a;
+            --card-bg: rgba(30, 41, 59, 0.7);
+            --border-color: rgba(255, 255, 255, 0.1);
+            --text-primary: #f8fafc;
+            --text-secondary: #94a3b8;
+            --accent-gradient: linear-gradient(135deg, #38bdf8 0%, #818cf8 100%);
+            --accent-color: #38bdf8;
+        }
+
+        * {
+            box-sizing: border-box;
+            scroll-behavior: smooth;
         }
 
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
-            color: var(--text-color);
+            font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, Roboto, sans-serif;
             background-color: var(--bg-color);
+            color: var(--text-primary);
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+        }
+
+        /* Navigation Bar */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: rgba(15, 23, 42, 0.85);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border-color);
+            z-index: 1000;
+            padding: 1rem 0;
+        }
+
+        .nav-container {
+            max-width: 900px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 1.5rem;
+        }
+
+        .logo {
+            font-weight: 700;
+            font-size: 1.2rem;
+            background: var(--accent-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 1.5rem;
+            list-style: none;
             margin: 0;
             padding: 0;
         }
 
+        .nav-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent-color);
+        }
+
+        /* Header Section */
         header {
-            background-color: var(--primary-color);
-            color: #ffffff;
-            padding: 2.5rem 1rem;
+            padding: 8rem 1.5rem 4rem;
+            text-align: center;
+            background: radial-gradient(circle at top, rgba(56, 189, 248, 0.15) 0%, transparent 60%);
         }
 
         .header-container {
             max-width: 800px;
             margin: 0 auto;
             display: flex;
+            flex-direction: column;
             align-items: center;
-            justify-content: center;
-            gap: 2rem;
-            flex-wrap: wrap;
-            text-align: left;
+            gap: 1.5rem;
         }
 
         .headshot {
-            width: 130px;
-            height: 130px;
+            width: 150px;
+            height: 150px;
             border-radius: 50%;
             object-fit: cover;
-            border: 3px solid #ffffff;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            border: 3px solid rgba(56, 189, 248, 0.5);
+            box-shadow: 0 0 25px rgba(56, 189, 248, 0.2);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .headshot:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 35px rgba(56, 189, 248, 0.4);
         }
 
         .header-text h1 {
             margin: 0;
-            font-size: 2.2rem;
+            font-size: 2.5rem;
+            font-weight: 800;
         }
 
-        .header-text p {
-            margin: 0.5rem 0 0;
+        .contact-info {
+            color: var(--text-secondary);
             font-size: 0.95rem;
-            color: #dcdcdc;
+            margin-top: 0.5rem;
         }
 
+        /* Main Container */
         main {
             max-width: 800px;
-            margin: 2rem auto;
-            padding: 0 1.5rem;
+            margin: 0 auto;
+            padding: 0 1.5rem 4rem;
         }
 
+        /* Card Section Styling */
         section {
             background: var(--card-bg);
-            border-radius: 8px;
-            padding: 1.5rem 2rem;
-            margin-bottom: 2rem;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            padding: 2rem;
+            margin-bottom: 2.5rem;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
         }
 
         h2 {
-            color: var(--primary-color);
-            border-bottom: 2px solid var(--accent-color);
-            padding-bottom: 0.5rem;
+            font-size: 1.5rem;
             margin-top: 0;
+            margin-bottom: 1.5rem;
+            display: inline-block;
+            background: var(--accent-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            border-bottom: 2px solid rgba(56, 189, 248, 0.3);
+            padding-bottom: 0.3rem;
         }
 
         .personal-statement p {
-            font-size: 1.1rem;
-            font-weight: 500;
-            color: #2c3e50;
+            font-size: 1.15rem;
+            color: #e2e8f0;
+            line-height: 1.7;
+        }
+
+        /* Filterable Skills */
+        .skills-filter {
+            display: flex;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .filter-btn {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--border-color);
+            color: var(--text-secondary);
+            padding: 0.4rem 1rem;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .filter-btn.active, .filter-btn:hover {
+            background: var(--accent-color);
+            color: #0f172a;
+            font-weight: 600;
         }
 
         .skills-list {
             display: flex;
             flex-wrap: wrap;
-            gap: 0.5rem;
+            gap: 0.75rem;
             padding: 0;
             list-style: none;
         }
 
         .skills-list li {
-            background-color: #e9ecef;
-            color: var(--primary-color);
-            padding: 0.4rem 0.8rem;
-            border-radius: 20px;
+            background: rgba(56, 189, 248, 0.1);
+            color: var(--accent-color);
+            border: 1px solid rgba(56, 189, 248, 0.2);
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
             font-size: 0.9rem;
-            font-weight: 600;
+            font-weight: 500;
+            transition: transform 0.2s;
         }
 
+        .skills-list li:hover {
+            transform: translateY(-2px);
+        }
+
+        /* Interactive Project Cards */
         .project-card {
-            border-left: 4px solid var(--accent-color);
-            padding-left: 1rem;
-            margin-bottom: 1.5rem;
+            background: rgba(15, 23, 42, 0.6);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin-bottom: 1.25rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
         }
 
-        .project-card:last-child {
-            margin-bottom: 0;
+        .project-card:hover {
+            transform: translateY(-4px);
+            border-color: var(--accent-color);
+            box-shadow: 0 10px 20px rgba(56, 189, 248, 0.1);
         }
 
         .project-card h3 {
-            margin: 0 0 0.25rem 0;
-            color: var(--primary-color);
+            margin: 0 0 0.5rem 0;
+            color: var(--text-primary);
         }
 
         .project-card p {
-            margin: 0.5rem 0;
+            color: var(--text-secondary);
+            margin: 0;
+            font-size: 0.95rem;
         }
 
-        .project-link {
+        .click-hint {
             display: inline-block;
-            margin-top: 0.25rem;
+            margin-top: 0.8rem;
+            font-size: 0.85rem;
             color: var(--accent-color);
-            font-weight: bold;
-            text-decoration: none;
+            font-weight: 600;
         }
 
-        .project-link:hover {
-            text-decoration: underline;
+        /* Modal / Pop-up Window */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.8);
+            backdrop-filter: blur(8px);
+            z-index: 2000;
+            justify-content: center;
+            align-items: center;
+            padding: 1rem;
+        }
+
+        .modal-content {
+            background: #1e293b;
+            border: 1px solid var(--border-color);
+            padding: 2rem;
+            border-radius: 16px;
+            max-width: 600px;
+            width: 100%;
+            position: relative;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+        }
+
+        .close-btn {
+            position: absolute;
+            top: 1rem;
+            right: 1.5rem;
+            font-size: 1.8rem;
+            color: var(--text-secondary);
+            cursor: pointer;
+        }
+
+        .close-btn:hover {
+            color: var(--text-primary);
         }
 
         footer {
             text-align: center;
-            padding: 1.5rem;
+            padding: 2rem;
             font-size: 0.85rem;
-            color: #6c757d;
+            color: var(--text-secondary);
+            border-top: 1px solid var(--border-color);
         }
 
         @media (max-width: 600px) {
-            .header-container {
-                flex-direction: column;
-                text-align: center;
+            .nav-links {
+                display: none; /* Simplifies layout for mobile */
             }
         }
     </style>
 </head>
 <body>
 
-    <header>
+    <nav>
+        <div class="nav-container">
+            <div class="logo">Mark Stolin</div>
+            <ul class="nav-links">
+                <li><a href="#about">About</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#projects">Projects</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <header id="about">
         <div class="header-container">
-            <!-- Exact file name match -->
             <img src="Mark.Stolin.png" alt="Mark Stolin" class="headshot">
-            
             <div class="header-text">
                 <h1>Mark Stolin</h1>
-                <p>Morganville, NJ | mark.stolin@rutgers.edu | (732) 735-3867</p>
+                <div class="contact-info">
+                    Morganville, NJ | mark.stolin@rutgers.edu | (732) 735-3867
+                </div>
             </div>
         </div>
     </header>
 
     <main>
+        <!-- 1. Personal Statement Section -->
         <section class="personal-statement">
             <h2>Personal Statement</h2>
             <p>
@@ -171,54 +330,130 @@
             </p>
         </section>
 
-        <section>
+        <!-- 2. Interactive Skills Section -->
+        <section id="skills">
             <h2>Skills & Qualifications</h2>
-            <ul class="skills-list">
-                <li>Java</li>
-                <li>JavaScript</li>
-                <li>R</li>
-                <li>MySQL</li>
-                <li>Financial Modeling</li>
-                <li>Data Analysis</li>
-                <li>Valuation Analysis</li>
-                <li>Research & Quantitative Reasoning</li>
-                <li>Bloomberg Market Concepts (BMC)</li>
-                <li>Bloomberg Finance Fundamentals (BFF)</li>
+            <div class="skills-filter">
+                <button class="filter-btn active" onclick="filterSkills('all')">All</button>
+                <button class="filter-btn" onclick="filterSkills('tech')">Programming & Tech</button>
+                <button class="filter-btn" onclick="filterSkills('finance')">Finance & Analytics</button>
+            </div>
+            <ul class="skills-list" id="skills-container">
+                <li data-cat="tech">Java</li>
+                <li data-cat="tech">JavaScript</li>
+                <li data-cat="tech">R</li>
+                <li data-cat="tech">MySQL</li>
+                <li data-cat="finance">Financial Modeling</li>
+                <li data-cat="finance">Data Analysis</li>
+                <li data-cat="finance">Valuation Analysis</li>
+                <li data-cat="finance">Quantitative Reasoning</li>
+                <li data-cat="finance">Bloomberg Market Concepts (BMC)</li>
+                <li data-cat="finance">Bloomberg Finance Fundamentals (BFF)</li>
             </ul>
         </section>
 
-        <section>
-            <h2>Projects</h2>
+        <!-- 3. Interactive Projects Section -->
+        <section id="projects">
+            <h2>Featured Projects</h2>
             
-            <div class="project-card">
+            <div class="project-card" onclick="openModal('modal1')">
                 <h3>Bender Trust Fund Stock Pitch — Quanta Services (NYSE: PWR)</h3>
-                <p>
-                    Led a 5-person team conducting quantitative and qualitative financial analyses for a buy recommendation on Quanta Services[cite: 1, 2]. Evaluated core catalysts including federal infrastructure spending and a $30B project backlog, comparing performance metrics against 6 sector competitors[cite: 1, 2].
-                </p>
-                <a href="https://github.com/yourusername/stock-pitch-quanta" class="project-link" target="_blank" rel="noopener">View Code / Pitch Material &rarr;</a>
+                <p>Led a 5-person team conducting quantitative and qualitative financial analyses for a buy recommendation on Quanta Services.</p>
+                <span class="click-hint">Click to view project details &rarr;</span>
             </div>
 
-            <div class="project-card">
+            <div class="project-card" onclick="openModal('modal2')">
                 <h3>Undergraduate Research Writing Conference (URWC) Presentation</h3>
-                <p>
-                    Researched the effects of creative thought within business and its impact on entrepreneurial growth[cite: 1, 2]. Presented methodology, case study analyses, and key findings on business innovation to an audience of peers and faculty[cite: 1, 2].
-                </p>
-                <a href="https://github.com/yourusername/urwc-research-presentation" class="project-link" target="_blank" rel="noopener">View Research Project &rarr;</a>
+                <p>Researched the effects of creative thought within business and its impact on entrepreneurial growth.</p>
+                <span class="click-hint">Click to view project details &rarr;</span>
             </div>
 
-            <div class="project-card">
+            <div class="project-card" onclick="openModal('modal3')">
                 <h3>Human Behavior & Workplace Dynamics Research</h3>
-                <p>
-                    Evaluated empirical academic studies on human behavior to analyze organizational behavior and model core drivers in workplace dynamics for Rutgers Management Research Group[cite: 1, 2].
-                </p>
-                <a href="https://github.com/yourusername/org-behavior-research" class="project-link" target="_blank" rel="noopener">View Research Brief &rarr;</a>
+                <p>Evaluated empirical academic studies on human behavior to analyze organizational behavior and model core drivers in workplace dynamics.</p>
+                <span class="click-hint">Click to view project details &rarr;</span>
             </div>
         </section>
     </main>
 
+    <!-- Modals for Interactive Project Viewing -->
+    <div id="modal1" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal('modal1')">&times;</span>
+            <h3 style="color: var(--accent-color);">Quanta Services (NYSE: PWR) Stock Pitch</h3>
+            <p><strong>Role:</strong> Team Lead (5-person team)</p>
+            <p><strong>Overview:</strong> Conducted comprehensive quantitative and qualitative analyses to issue a formal Buy recommendation for Quanta Services.</p>
+            <ul>
+                <li>Evaluated core catalysts including federal infrastructure spending and grid modernization.</li>
+                <li>Analyzed a $30B project backlog against 6 sector competitors using SEC filings.</li>
+                <li>Presented pitch deck to senior judges highlighting growth driven by AI energy demand.</li>
+            </ul>
+        </div>
+    </div>
+
+    <div id="modal2" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal('modal2')">&times;</span>
+            <h3 style="color: var(--accent-color);">Creativity & Structure in Innovation (URWC)</h3>
+            <p><strong>Role:</strong> Presenter</p>
+            <p><strong>Overview:</strong> Investigated how creative thought impacts business frameworks and fuels entrepreneurial expansion.</p>
+            <ul>
+                <li>Analyzed real-world corporate case studies on business growth and creative processes.</li>
+                <li>Presented conclusions to faculty and students at the Undergraduate Research Writing Conference.</li>
+            </ul>
+        </div>
+    </div>
+
+    <div id="modal3" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal('modal3')">&times;</span>
+            <h3 style="color: var(--accent-color);">Human Behavior & Workplace Dynamics Research</h3>
+            <p><strong>Role:</strong> Student Researcher (Rutgers Management Research Group)</p>
+            <p><strong>Overview:</strong> Modeled workplace drivers using empirical academic studies on organizational behavior.</p>
+            <ul>
+                <li>Collaborated in weekly research sessions to solve faculty-prepared organizational management challenges.</li>
+                <li>Transformed academic findings into practical solutions for management decision-making.</li>
+            </ul>
+        </div>
+    </div>
+
     <footer>
-        <p>&copy; 2026 Mark Stolin. Built for GitHub Portfolio Project.</p>
+        <p>&copy; 2026 Mark Stolin | Portfolio Project</p>
     </footer>
 
+    <script>
+        // Filter Skills Functionality
+        function filterSkills(category) {
+            const items = document.querySelectorAll('#skills-container li');
+            const buttons = document.querySelectorAll('.filter-btn');
+
+            buttons.forEach(btn => btn.classList.remove('active'));
+            event.target.classList.add('active');
+
+            items.forEach(item => {
+                if (category === 'all' || item.getAttribute('data-cat') === category) {
+                    item.style.display = 'block';
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+        }
+
+        // Modal Functionality
+        function openModal(id) {
+            document.getElementById(id).style.display = 'flex';
+        }
+
+        function closeModal(id) {
+            document.getElementById(id).style.display = 'none';
+        }
+
+        // Close modal when clicking outside content
+        window.onclick = function(event) {
+            if (event.target.classList.contains('modal')) {
+                event.target.style.display = 'none';
+            }
+        }
+    </script>
 </body>
 </html>
